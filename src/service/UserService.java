@@ -12,4 +12,6 @@ public interface UserService {
     PageBean pageQuery(QueryInfo queryInfo);
 
     void deleteUser(int uid);
+
+    User findUser(int uid);
 }

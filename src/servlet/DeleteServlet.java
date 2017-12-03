@@ -24,10 +24,8 @@ public class DeleteServlet extends HttpServlet {
             int uid = Integer.parseInt(request.getParameter("uid"));
             UserService service = new UserServiceImp();
             service.deleteUser(uid);
-            //  req.setAttribute("message", "删除成功！！");
         }catch(Exception e){
             e.printStackTrace();
-            // req.setAttribute("message", "删除失败");
         }
         response.sendRedirect("ListUserServlet");
     }

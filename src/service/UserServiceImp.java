@@ -32,4 +32,9 @@ public class UserServiceImp implements UserService {
     public void deleteUser(int uid) {
         userDao.deleteUser(uid);
     }
+
+    @Override
+    public User findUser(int uid) {
+        return userDao.findUser(uid);
+    }
 }

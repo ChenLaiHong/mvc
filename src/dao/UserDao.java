@@ -11,4 +11,6 @@ public interface UserDao {
     QueryResult pageQuery(int startindex, int pagesize);
 
     void deleteUser(int uid);
+
+    User findUser(int uid);
 }

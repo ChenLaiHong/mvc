@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="lsl" uri="/lsl" %>
 <html>
 <head>
     <title>用户列表</title>
@@ -49,17 +51,17 @@
     <tr></tr>
     <tr></tr>
 
-    <tr><th>用户名</th><th>性别</th><th>城市</th><th>邮箱</th><th>爱好</th><th>备注</th><th>操作</th></tr>
+    <tr><th>用户名</th><th>性别</th><th>专业</th><th>邮箱</th><th>爱好</th><th>备注</th><th>操作</th></tr>
     <c:forEach var="c" items="${requestScope.pagebean.list}" varStatus="status">
         <tr>
             <td align="center" width="7%">${c.uname}</td>
             <td align="center" width="7%">${c.sex}</td>
-            <td align="center" width="10%">${c.city}</td>
+            <td align="center" width="10%">${c.major}</td>
             <td align="center" width="10%">${c.email}</td>
             <td align="center" width="15%">${lsl:sub(c.preferences)}</td>
             <td align="center" width="17%">${lsl:sub(c.others)}</td>
             <td align="center" width="12%">
-                <a href="updateUser.jsp">编辑</a>
+                <a href="${path}/UpdateServlet?uid=${c.uid}">编辑</a>
                 <a href="javascript:void(0)" onclick="del('${c.uid}')">删除</a>
             </td>
 

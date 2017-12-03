@@ -10,7 +10,7 @@ public class User {
     private String password2;
     private String email;
     private String sex;
-    private String city;
+    private String major;
     private String preferences;
     private String others;
 
@@ -62,12 +62,12 @@ public class User {
         this.sex = sex;
     }
 
-    public String getCity() {
-        return city;
+    public String getMajor() {
+        return major;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setMajor(String major) {
+        this.major = major;
     }
 
     public String getPreferences() {

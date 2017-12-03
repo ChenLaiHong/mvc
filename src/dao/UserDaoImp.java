@@ -8,6 +8,7 @@ import utils.QueryResult;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -61,7 +62,7 @@ public class UserDaoImp implements UserDao {
                 User user=new User();
                 user.setUid(rs.getInt("uid"));
                 user.setUname(rs.getString("uname"));
-                user.setCity(rs.getString("city"));
+                user.setMajor(rs.getString("major"));
                 user.setEmail(rs.getString("email"));
                 user.setSex(rs.getString("sex"));
                 user.setPreferences(rs.getString("preferences"));
@@ -100,5 +101,36 @@ public class UserDaoImp implements UserDao {
         }finally{
             JdbcUtils.release(conn, st, rs);
         }
+    }
+
+    @Override
+    public User findUser(int uid) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql = "select * from user where uid=?";
+            st = conn.prepareStatement(sql);
+            st.setInt(1,uid);
+           rs= st.executeQuery();
+            if(rs.next()){
+                User user = new User();
+                user.setUid(rs.getInt("uid"));
+                user.setMajor(rs.getString("major"));
+                user.setEmail(rs.getString("email"));
+                user.setOthers(rs.getString("others"));
+                user.setPreferences(rs.getString("preferences"));
+                user.setUname(rs.getString("uname"));
+                user.setSex(rs.getString("sex"));
+                return user;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JdbcUtils.release(conn, st, rs);
+        }
+        return null;
     }
 }

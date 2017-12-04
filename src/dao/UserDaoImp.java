@@ -133,4 +133,27 @@ public class UserDaoImp implements UserDao {
         }
         return null;
     }
+
+    @Override
+    public void update(User user) {
+        Connection conn=null;
+        PreparedStatement pre=null;
+        ResultSet rs=null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql="update user set email=?,sex=?,major=?,preferences=?,others=? where uid=?";
+            pre=conn.prepareStatement(sql);
+            pre.setString(1,user.getEmail());
+            pre.setString(2,user.getSex());
+            pre.setString(3,user.getMajor());
+            pre.setString(4,user.getPreferences());
+            pre.setString(5,user.getOthers());
+            pre.setInt(6,user.getUid());
+            pre.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException();
+        }finally {
+            JdbcUtils.release(conn,pre,rs);
+        }
+    }
 }

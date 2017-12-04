@@ -25,28 +25,28 @@
     <script type="text/javascript">
         function checkAll(){
             var pres = document.getElementsByName("pre");
-            var preference = "";
+            var preferences = "";
             for(var i=0;i<pres.length;i++){
                 var input = pres[i];
                 if(input.checked==true){
-                    preference = preference + input.value + ",";
+                    preferences = preferences + input.value + ",";
                 }
             }
-            preference = preference.substr(0,preference.length-1);
+            preferences = preferences.substr(0,preferences.length-1);
             var form = document.getElementById("form");
             var input = document.createElement("input");
             input.type = "hidden";
-            input.name = "preference";
-            input.value = preference;
+            input.name = "preferences";
+            input.value = preferences;
             form.appendChild(input);
             return true;
         }
     </script>
 </head>
-<body>
+
 <body background="${path}/image/1.jpg">
 
-<form id="form" action="register_check.jsp" method="post" onsubmit="return checkAll()">
+<form id="form" action="UpdateServlet" method="post" onsubmit="return checkAll()">
 
     <tr>
         <p align="center" class="STYLE1">修改学生信息</p>
@@ -55,12 +55,12 @@
     <table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:560px;height:35px">
     <input type="hidden" name="uid" value="${user.uid}">
         <tr>
-            <td>*用户名：</td>
-            <td><input type="text" name="username" value="${user.uname}" />
+            <td>用户名：</td>
+            <td><input type="text" value="${user.uname}" readonly="readonly"/>
             </td>
         </tr>
         <tr>
-            <td>*邮箱：</td>
+            <td>邮箱：</td>
             <td><input type="text" name="email"value="${user.email}"/>
             </td>
         </tr>
@@ -78,7 +78,7 @@
 
                 <select name="major" >
                     <c:forEach var="major" items="${major}">
-                        <option value="${major}" <c:if test="${user.major==major?'checked':''}"></c:if>${major}</option>
+                        <option value="${major}" ${user.major==major?'selected':''}>${major}</option>
                     </c:forEach>
             </select>
 
@@ -94,12 +94,11 @@
     </tr>
         <tr>
             <td>备注</td>
-            <td><textarea rows="3" cols="30"> ${user.others}</textarea>
+            <td><textarea rows="3" cols="30" name="others"> ${user.others}</textarea>
         </tr>
 
         <tr>
-            <td colspan="2"><input type="submit" value="注册"/>
-                <div id="errorA" style="display:inline;color:red;"></div>
+            <td colspan="2"><input type="submit" value="修改"/>
             </td>
 
         </tr>

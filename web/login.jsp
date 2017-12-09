@@ -40,8 +40,9 @@
     <tr>
         <p align="center" class="STYLE1">学生登录窗口</p>
     </tr>
+    <font color="red">${requestScope.msg}</font>
     <form action="LoginServlet" method="post" onsubmit="return checkAll()">
-        <font color="red">${requestScope.msg}</font>
+
         <tr>
             <td>*用户名：</td>
             <td><input type="text" name="username" id="name" placeholder="请输入用户名" autocomplete="off"/>

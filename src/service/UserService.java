@@ -16,4 +16,6 @@ public interface UserService {
     User findUser(int uid);
 
     void updateUser(User user);
+
+    PageBean pageQueryLike(QueryInfo info, String query);
 }

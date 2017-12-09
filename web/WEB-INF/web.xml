@@ -19,6 +19,10 @@
         <servlet-name>UpdateServlet</servlet-name>
         <servlet-class>servlet.UpdateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>QueryServlet</servlet-name>
+        <servlet-class>servlet.QueryServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -36,5 +40,18 @@
         <servlet-name>UpdateServlet</servlet-name>
         <url-pattern>/UpdateServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>QueryServlet</servlet-name>
+        <url-pattern>/QueryServlet</url-pattern>
+    </servlet-mapping>
     
+    <filter>
+        <filter-name>filter</filter-name>
+        <filter-class>utils.EcondFilter</filter-class>
+
+    </filter>
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

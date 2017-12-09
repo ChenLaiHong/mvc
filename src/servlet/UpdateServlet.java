@@ -19,7 +19,7 @@ import java.io.IOException;
 @WebServlet(name = "UpdateServlet")
 public class UpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    request.setCharacterEncoding("utf-8");
+  //  request.setCharacterEncoding("utf-8");
     try {
         User user= WebUtils.request2Bean(request,User.class);
         UserService userService = new UserServiceImp();

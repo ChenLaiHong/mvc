@@ -42,4 +42,15 @@ public class UserServiceImp implements UserService {
     public void updateUser(User user) {
         userDao.update(user);
     }
+
+    @Override
+    public PageBean pageQueryLike(QueryInfo info, String query) {
+        QueryResult queryResult = userDao.pageQueryLike(info.getStartindex(),info.getPagesize(),query);
+        PageBean pageBean = new PageBean();
+        pageBean.setCurrentpage(info.getCurrentpage());
+        pageBean.setList(queryResult.getList());
+        pageBean.setPagesize(info.getPagesize());
+        pageBean.setTotalrecord(queryResult.getTotalrecord());
+        return pageBean;
+    }
 }

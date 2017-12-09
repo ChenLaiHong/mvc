@@ -156,4 +156,49 @@ public class UserDaoImp implements UserDao {
             JdbcUtils.release(conn,pre,rs);
         }
     }
+
+    @Override
+    public QueryResult pageQueryLike(int startindex, int pagesize, String query) {
+        Connection conn= null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        QueryResult queryResult = new QueryResult();
+        try {
+            conn = JdbcUtils.getConnection();
+            String sql = "select * from user WHERE major LIKE "+"'%"+query+"%' limit ?,? ";
+            st= conn.prepareStatement(sql);
+            st.setInt(1,startindex);
+            st.setInt(2,pagesize);
+            rs=st.executeQuery();
+            List list = new ArrayList();
+            while (rs.next()){
+                User user=new User();
+                user.setUid(rs.getInt("uid"));
+                user.setUname(rs.getString("uname"));
+                user.setMajor(rs.getString("major"));
+                user.setEmail(rs.getString("email"));
+                user.setSex(rs.getString("sex"));
+                user.setPreferences(rs.getString("preferences"));
+                user.setOthers(rs.getString("others"));
+                list.add(user);
+            }
+            queryResult.setList(list);
+            // "select * from student where name like" + "'%" + name
+          //  + "%'" + "or address like " + "'%" + name + "%'"
+            sql = "SELECT COUNT(*) FROM USER WHERE major LIKE "+"'%"+query+"%'";
+            st = conn.prepareStatement(sql);
+         //   st.setString(1,"%"+query+"%");
+            rs = st.executeQuery();
+            if(rs.next()){
+                queryResult.setTotalrecord(rs.getInt(1));
+                System.out.print("总记录数："+queryResult.getTotalrecord());
+            }
+            return queryResult;
+        } catch (Exception e) {
+            throw new DaoException(e);
+        }finally {
+            JdbcUtils.release(conn,st,rs);
+        }
+    }
+
 }

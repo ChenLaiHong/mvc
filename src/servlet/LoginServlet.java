@@ -14,11 +14,14 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
+      // request.setCharacterEncoding("utf-8");
+        System.out.print("进来servlet");
         UserService userServer=new UserServiceImp();
         User user=null;
         String name = request.getParameter("username");
+        System.out.print(name);
         String pass = request.getParameter("password");
+        System.out.print(pass);
         if(name==null || "".equals(name)){
             request.setAttribute("msg","用户名不能为空");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
@@ -28,11 +31,13 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             request.getRequestDispatcher("/login.jsp").forward(request,response);
             return;
         }else if((user=userServer.find(name,pass))==null){
+            System.out.print(userServer.find(name,pass));
             request.setAttribute("msg","用户不存在");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
             return;
         }else {
-            // req.getSession().setAttribute("user", user);
+
+            System.out.print(user);
             response.sendRedirect("ListUserServlet");
         }
     }

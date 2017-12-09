@@ -52,7 +52,7 @@
     <tr></tr>
 
     <tr><th>用户名</th><th>性别</th><th>专业</th><th>邮箱</th><th>爱好</th><th>备注</th><th>操作</th></tr>
-    <c:forEach var="c" items="${requestScope.pagebean.list}" varStatus="status">
+    <c:forEach var="c" items="${requestScope.queryPage.list}" varStatus="status">
         <tr>
             <td align="center" width="7%">${c.uname}</td>
             <td align="center" width="7%">${c.sex}</td>
@@ -82,7 +82,7 @@
             document.getElementById("pagenum").value='';
         }else {
             var pagesize = document.getElementById("pagesize").value;
-            window.location.href='${pageContext.request.contextPath}/ListUserServlet?currentpage='+currentpage+'&pagesize='+pagesize;
+            window.location.href='${pageContext.request.contextPath}/QueryServlet?currentpage='+currentpage+'&pagesize='+pagesize;
         }
 
     }
@@ -92,27 +92,27 @@
             alert("请输入合法值！！");
             document.getElementById("pagesize").value = oldvalue;
         }else{
-            window.location.href='${pageContext.request.contextPath}/ListUserServlet?pagesize=' + pagesize;
+            window.location.href='${pageContext.request.contextPath}/QueryServlet?pagesize=' + pagesize;
         }
     }
 </script>
 <br>
-共[${pagebean.totalrecord}]条记录 ,
-每页<input type="text" id="pagesize" value="${pagebean.pagesize}" onchange="changesize(this.value,${pagebean.pagesize})" style="width:30px" maxlength="2">条,
-共[${pagebean.totalpage}]页,
-当前[${pagebean.currentpage}]页
+共[${queryPage.totalrecord}]条记录 ,
+每页<input type="text" id="pagesize" value="${queryPage.pagesize}" onchange="changesize(this.value,${queryPage.pagesize})" style="width:30px" maxlength="2">条,
+共[${queryPage.totalpage}]页,
+当前[${queryPage.currentpage}]页
 &nbsp;&nbsp;&nbsp;
-<a href="javascript:void(0)" onclick="gotopage(${pagebean.previouspage})">上一页</a>
-<c:forEach var="pagenum" items="${pagebean.pagebar}">
-    <c:if test="${pagenum==pagebean.currentpage}">
+<a href="javascript:void(0)" onclick="gotopage(${queryPage.previouspage})">上一页</a>
+<c:forEach var="pagenum" items="${queryPage.pagebar}">
+    <c:if test="${pagenum==queryPage.currentpage}">
         <font color='red'>${pagenum}</font>
     </c:if>
 
-    <c:if test="${pagenum!=pagebean.currentpage}">
+    <c:if test="${pagenum!=queryPage.currentpage}">
         <a href="javascript:void(0)" onclick="gotopage(${pagenum})">${pagenum}</a>
     </c:if>
 </c:forEach>
-<a href="javascript:void(0)" onclick="gotopage(${pagebean.nextpage})">下一页</a>
+<a href="javascript:void(0)" onclick="gotopage(${queryPage.nextpage})">下一页</a>
 
 
 </body>

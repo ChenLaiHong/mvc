@@ -46,11 +46,11 @@
 <p align="center">
 <table align="center" border="1" cellpadding="7" bgcolor="#F5CBFF" style="width:70%;height:35px">
     <form action="QueryServlet" method="post">
-        <input type="text" placeholder="请输入查询内容" class="inputAttr1" name="query"><input type="submit" class="bt" value="搜索">
+        <input type="text" placeholder="请输入查询内容" class="inputAttr1"   name="query" ><input type="submit" class="bt" value="搜索">
     </form>
     <tr></tr>
     <tr></tr>
-
+<input type="hidden" name="query" id="query" value="${query}">
     <tr><th>用户名</th><th>性别</th><th>专业</th><th>邮箱</th><th>爱好</th><th>备注</th><th>操作</th></tr>
     <c:forEach var="c" items="${requestScope.queryPage.list}" varStatus="status">
         <tr>
@@ -82,7 +82,8 @@
             document.getElementById("pagenum").value='';
         }else {
             var pagesize = document.getElementById("pagesize").value;
-            window.location.href='${pageContext.request.contextPath}/QueryServlet?currentpage='+currentpage+'&pagesize='+pagesize;
+            var query = document.getElementById("query").value;
+            window.location.href='${pageContext.request.contextPath}/QueryServlet?currentpage='+currentpage+'&pagesize='+pagesize+'&query='+query;
         }
 
     }

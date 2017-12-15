@@ -40,7 +40,7 @@
     <tr>
         <p align="center" class="STYLE1">学生登录窗口</p>
     </tr>
-    <font color="red">${requestScope.msg}</font>
+    <h5  style="text-align: center;color: red">${requestScope.msg}</h5>
     <form action="LoginServlet" method="post" onsubmit="return checkAll()">
 
         <tr>

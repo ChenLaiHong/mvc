@@ -45,8 +45,9 @@
 </tr>
 <p align="center">
 <table align="center" border="1" cellpadding="7" bgcolor="#F5CBFF" style="width:70%;height:35px">
+    <h5 style="text-align: center;color: red">${requestScope.message}</h5>
     <form action="QueryServlet" method="post">
-        <input type="text" placeholder="请输入查询内容" class="inputAttr1" name="query"><input type="submit" class="bt" value="搜索">
+        <input type="text" placeholder="请输入查询的专业" class="inputAttr1" name="query"><input type="submit" class="bt" value="搜索">
     </form>
     <tr></tr>
     <tr></tr>

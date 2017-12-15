@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>信息管理</title>
   </head>
   <body>
-  来来来
+  <center>
+<h5>在线人数<%=session.getAttribute("userNum")%></h5>
+  </center>
   </body>
 </html>

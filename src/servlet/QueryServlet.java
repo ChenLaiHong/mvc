@@ -32,8 +32,14 @@ public class QueryServlet extends HttpServlet {
              QueryInfo info = WebUtils.request2Bean(request, QueryInfo.class);
              UserService userService = new UserServiceImp();
              PageBean pageBean = userService.pageQueryLike(info,query);
-             request.setAttribute("queryPage",pageBean);
-             request.getRequestDispatcher("/queryRes.jsp").forward(request, response);
+             System.out.print("内容："+pageBean);
+             if(userService.pageQueryLike(info,query).getTotalrecord() != 0) {
+                 request.setAttribute("queryPage", pageBean);
+                 request.getRequestDispatcher("/queryRes.jsp").forward(request, response);
+             }else {
+                 request.setAttribute("message","没有相应专业的学生！");
+                 request.getRequestDispatcher("/loginSuc.jsp").forward(request,response);
+             }
          }
     }
 }

@@ -11,8 +11,8 @@
     <title>信息管理</title>
   </head>
   <body>
-  <center>
-<h5>在线人数<%=session.getAttribute("userNum")%></h5>
-  </center>
+<h5 style="text-align: center">在线人数<%=session.getAttribute("userNum")%></h5>
+     <a href="comment.jsp">评论</a>
+     <a href="login.jsp">登录</a>
   </body>
 </html>

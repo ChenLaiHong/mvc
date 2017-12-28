@@ -12,8 +12,8 @@
   </head>
   <body>
 <h5 style="text-align: center">在线人数<%=session.getAttribute("userNum")%></h5>
-     <a href="article.jsp">发表</a>
-     <a href="read.jsp">查看文章</a>
-     <a href="login.jsp">登录</a>
+     <a href="article.jsp" target="right">发表</a>
+     <a href="read.jsp" target="right">查看文章</a>
+     <a href="login.jsp" target="right">登录</a>
   </body>
 </html>

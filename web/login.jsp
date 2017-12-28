@@ -36,7 +36,7 @@
 </head>
 <body background="${path}/image/1.jpg">
 
-<table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:560px;height:35px">
+<table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:500px;height:35px">
     <tr>
         <p align="center" class="STYLE1">学生登录窗口</p>
     </tr>

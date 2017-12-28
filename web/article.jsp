@@ -7,9 +7,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>评论</title>
+    <title>文章类型管理</title>
 </head>
 <body>
+<a href="add_article.jsp">添加文章类型</a>
 
 </body>
 </html>

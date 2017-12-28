@@ -38,6 +38,10 @@
         <servlet-name>QueryServlet</servlet-name>
         <servlet-class>servlet.QueryServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ArticleServlet</servlet-name>
+        <servlet-class>servlet.ArticleServlet</servlet-class>
+    </servlet>
     
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -59,6 +63,9 @@
         <servlet-name>QueryServlet</servlet-name>
         <url-pattern>/QueryServlet</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>ArticleServlet</servlet-name>
+        <url-pattern>/ArticleServlet</url-pattern>
+    </servlet-mapping>
  
 </web-app>

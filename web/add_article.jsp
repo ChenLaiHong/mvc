@@ -37,7 +37,7 @@
     <tr>
         <p align="center" class="STYLE1">添加文章类型</p>
     </tr>
-    <form action="articleServlet" method="post" onsubmit="return checkAll()">
+    <form action="ArticleServlet" method="post" onsubmit="return checkAll()">
 
         <tr>
             <td>类型名：</td>

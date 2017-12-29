@@ -1,6 +1,5 @@
 package servlet;
 
-import bean.Type;
 import service.TypeService;
 import service.TypeServiceImp;
 
@@ -10,23 +9,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
- * Created by 赖红 on 2017/12/28.
+ * Created by 赖红 on 2017/12/29.
  */
-@WebServlet(name = "ArticleServlet")
-public class ArticleServlet extends HttpServlet {
+@WebServlet(name = "ListTypeServlet")
+public class ListTypeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String typeName=request.getParameter("typeName");
-        Type type = new Type();
-        TypeService typeService= new TypeServiceImp() ;
-        type.setTypeName(typeName);
-        typeService.add_article(type);
-        request.getRequestDispatcher("/article.jsp").forward(request,response);
-
+        doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        TypeService typeService = new TypeServiceImp();
+        List list = typeService.getAll();
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print("集合：" + list);
+        }
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/articleType.jsp").forward(request, response);
     }
 }

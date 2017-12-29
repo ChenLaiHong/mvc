@@ -44,4 +44,21 @@ public class JdbcUtils {
             }
         }
     }
+    public  static void release(Connection conn, Statement st){
+        if(st!=null){
+            try{
+                st.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            st=null;
+        }
+        if(conn !=null){
+            try{
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

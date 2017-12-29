@@ -38,6 +38,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
         }else {
 
             System.out.print(user);
+            request.getSession().setAttribute("user",user);
             response.sendRedirect("ListUserServlet");
         }
     }

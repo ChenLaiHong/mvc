@@ -37,8 +37,8 @@
     <tr>
         <p align="center" class="STYLE1">添加文章类型</p>
     </tr>
-    <form action="ArticleServlet" method="post" onsubmit="return checkAll()">
-
+    <form action="ArticleTypeServlet" method="post" onsubmit="return checkAll()">
+        <input type="hidden" name="typeId" value="0">
         <tr>
             <td>类型名：</td>
             <td><input type="text" name="typeName" id="name" placeholder="请输入类型名" autocomplete="off"/>

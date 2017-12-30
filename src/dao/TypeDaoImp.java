@@ -107,4 +107,23 @@ public class TypeDaoImp implements TypeDao {
         }
     }
 
+    @Override
+    public void deleteType(int typeId) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            conn = JdbcUtils.getConnection();
+            //根据id删除
+            String sql = "delete from TYPE where typeId = ?";
+            st = conn.prepareStatement(sql);
+            st.setInt(1,typeId);
+            st.executeUpdate();
+        }catch(Exception e){
+            throw new DaoException();
+        }finally{
+            JdbcUtils.release(conn, st, rs);
+        }
+    }
+
 }

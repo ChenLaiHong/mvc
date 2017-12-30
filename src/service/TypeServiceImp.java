@@ -34,4 +34,9 @@ public class TypeServiceImp implements TypeService {
     public void updateType(int typeId,String typeName) {
         typeDao.updateType(typeId,typeName);
     }
+
+    @Override
+    public void deleteType(int typeId) {
+        typeDao.deleteType(typeId);
+    }
 }

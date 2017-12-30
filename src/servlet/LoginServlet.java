@@ -17,11 +17,10 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
       // request.setCharacterEncoding("utf-8");
         System.out.print("进来servlet");
         UserService userServer=new UserServiceImp();
-        User user=null;
+        User user=new User();
         String name = request.getParameter("username");
-        System.out.print(name);
         String pass = request.getParameter("password");
-        System.out.print(pass);
+       user = userServer.find(name,pass);
         if(name==null || "".equals(name)){
             request.setAttribute("msg","用户名不能为空");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
@@ -30,15 +29,16 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             request.setAttribute("msg","密码不能为空");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
             return;
-        }else if((user=userServer.find(name,pass))==null){
+        }else if(user==null){
             System.out.print(userServer.find(name,pass));
             request.setAttribute("msg","用户不存在");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
             return;
         }else {
 
-            System.out.print(user);
-            request.getSession().setAttribute("user",user);
+            System.out.print("用户名："+user.getUname());
+
+           request.getSession().setAttribute("name",user.getUname());
             response.sendRedirect("ListUserServlet");
         }
     }

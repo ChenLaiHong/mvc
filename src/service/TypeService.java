@@ -17,4 +17,6 @@ public interface TypeService {
     Type findType(int typeId);
 
     void updateType(int typeId,String typeName);
+
+    void deleteType(int typeId);
 }

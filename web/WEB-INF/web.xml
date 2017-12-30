@@ -46,6 +46,16 @@
         <servlet-name>ListTypeServlet</servlet-name>
         <servlet-class>servlet.ListTypeServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteTypeServlet</servlet-name>
+        <servlet-class>servlet.DeleteTypeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ArticleServlet</servlet-name>
+        <servlet-class>servlet.ArticleServlet</servlet-class>
+    </servlet>
+
+
     
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -74,5 +84,13 @@
     <servlet-mapping>
         <servlet-name>ListTypeServlet</servlet-name>
         <url-pattern>/ListTypeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteTypeServlet</servlet-name>
+        <url-pattern>/DeleteTypeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArticleServlet</servlet-name>
+        <url-pattern>/ArticleServlet</url-pattern>
     </servlet-mapping>
 </web-app>

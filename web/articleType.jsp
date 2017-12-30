@@ -33,9 +33,9 @@
 </table>
 
 <script type="text/javascript">
-    function del(uid) {
+    function del(typeId) {
         if(window.confirm("你确定删除吗？"))
-            location.href = '${pageContext.request.contextPath}/DeleteServlet?typeId=' + typeId;
+            location.href = '${pageContext.request.contextPath}/DeleteTypeServlet?typeId=' + typeId;
     }
 
 </script>

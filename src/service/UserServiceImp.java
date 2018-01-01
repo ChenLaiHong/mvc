@@ -53,4 +53,11 @@ public class UserServiceImp implements UserService {
         pageBean.setTotalrecord(queryResult.getTotalrecord());
         return pageBean;
     }
+
+    @Override
+    public User updateSelf(int id) {
+        return userDao.updateSelf(id);
+    }
+
+
 }

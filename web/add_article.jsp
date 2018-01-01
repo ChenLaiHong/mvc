@@ -19,28 +19,14 @@
         }
     </style>
 
-    <script>
-        function checkAll() {
-            var articleName= document.getElementById("articleName")
-            var article= document.getElementById("article")
-            if(articleName =="" || articleName == null){
-                alert("标题不能为空")
-                return false;
-            }else if(article == "" || article == null){
-                alert("文章内容不能为空")
-                return false;
-            }else
-            return true;
-
-        }
-    </script>
 </head>
 <body background="${path}/image/1.jpg">
 <tr>
     <p align="center" class="STYLE1">添加文章</p>
 </tr>
+<h5  style="text-align: center;color: red">${requestScope.mesg}</h5>
 <table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:500px;height:35px">
-<form action="ArticleServlet" method="post" onsubmit="return checkAll()">
+<form action="ArticleServlet" method="post">
 
     <tr>
         <td>文章标题：</td>

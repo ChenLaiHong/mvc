@@ -33,6 +33,10 @@ public class UserDaoImp implements UserDao {
                 User u = new User();
                 u.setUname(rs.getString("uname"));
                 u.setPassword(rs.getString("password"));
+                u.setUid(rs.getInt("uid"));
+                u.setMajor(rs.getString("major"));
+                u.setSex(rs.getString("sex"));
+                u.setPreferences(rs.getString("preferences"));
                 return u;
             }
 
@@ -123,6 +127,8 @@ public class UserDaoImp implements UserDao {
                 user.setPreferences(rs.getString("preferences"));
                 user.setUname(rs.getString("uname"));
                 user.setSex(rs.getString("sex"));
+                user.setPassword(rs.getString("password"));
+                user.setPassword2(rs.getString("password2"));
                 return user;
             }
 
@@ -141,15 +147,20 @@ public class UserDaoImp implements UserDao {
         ResultSet rs=null;
         try{
             conn = JdbcUtils.getConnection();
-            String sql="update user set email=?,sex=?,major=?,preferences=?,others=? where uid=?";
+          //  String sql="update user set email=?,sex=?,major=?,preferences=?,others=? where uid=?";
+            String sql="update user set email=?,sex=?,major=?,preferences=?,others=?,password=?,password2=?,uname=? where uid=?";
             pre=conn.prepareStatement(sql);
             pre.setString(1,user.getEmail());
             pre.setString(2,user.getSex());
             pre.setString(3,user.getMajor());
             pre.setString(4,user.getPreferences());
             pre.setString(5,user.getOthers());
-            pre.setInt(6,user.getUid());
+            pre.setString(6,user.getPassword());
+            pre.setString(7,user.getPassword2());
+            pre.setString(8,user.getUname());
+            pre.setInt(9,user.getUid());
             pre.executeUpdate();
+
         } catch (Exception e) {
             throw new DaoException();
         }finally {
@@ -199,6 +210,11 @@ public class UserDaoImp implements UserDao {
         }finally {
             JdbcUtils.release(conn,st,rs);
         }
+    }
+
+    @Override
+    public User updateSelf(int id) {
+        return null;
     }
 
 }

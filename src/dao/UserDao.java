@@ -17,4 +17,6 @@ public interface UserDao {
     void update(User user);
 
     QueryResult pageQueryLike(int startindex, int pagesize, String query);
+
+    User updateSelf(int id);
 }

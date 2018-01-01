@@ -26,6 +26,16 @@ public class ArticleServlet extends HttpServlet {
         String author = (String) request.getSession().getAttribute("name");
         System.out.print("作者："+author);
 
+        if(articleName=="" ||articleName==null){
+            request.setAttribute("mesg","文章标题不能为空");
+            doGet(request,response);
+            return;
+        }
+        if(article=="" ||article==null){
+            request.setAttribute("mesg","文章内容不能为空");
+           doGet(request,response);
+            return;
+        }
         Article article1 = new Article();
         article1.setArticleName(articleName);
         article1.setArticle(article);

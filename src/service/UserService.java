@@ -18,4 +18,7 @@ public interface UserService {
     void updateUser(User user);
 
     PageBean pageQueryLike(QueryInfo info, String query);
+
+
+    User updateSelf(int id);
 }

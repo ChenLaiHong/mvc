@@ -24,6 +24,7 @@ public class UpdateServlet extends HttpServlet {
         User user= WebUtils.request2Bean(request,User.class);
         UserService userService = new UserServiceImp();
         userService.updateUser(user);
+
         response.sendRedirect("ListUserServlet");
     }catch (Exception e){
          e.printStackTrace();

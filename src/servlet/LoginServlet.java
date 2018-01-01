@@ -39,7 +39,9 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             System.out.print("用户名："+user.getUname());
 
            request.getSession().setAttribute("name",user.getUname());
-            response.sendRedirect("ListUserServlet");
+           request.setAttribute("uid",user.getUid());
+            request.getRequestDispatcher("/selft_home.jsp").forward(request,response);
+       //     response.sendRedirect("ListUserServlet");
         }
     }
 

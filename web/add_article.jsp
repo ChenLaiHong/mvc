@@ -27,7 +27,6 @@
 
 
     <script type="text/javascript">
-        //发送
         function sendEm(){
             var article = UE.getEditor('article').getContent();
             alert("内容"+article)
@@ -48,17 +47,17 @@
     <p align="center" class="STYLE1">添加文章</p>
 </tr>
 <h5  style="text-align: center;color: red">${requestScope.mesg}</h5>
-<table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:1000px;height:35px">
+<table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:1000px;height:100px">
 
     <form id="form" action="ArticleServlet" method="post" onsubmit="return sendEm()">
 
     <tr>
-        <td>文章标题：</td>
+        <td>标题</td>
         <td><input type="text" name="articleName" id="articleName" placeholder="请输入文章标题" autocomplete="off"/>
         </td>
     </tr>
     <tr>
-        <td>文章类型：</td>
+        <td>类型</td>
         <td>
             <select name="typeId" id="typeId">
                 <c:forEach var="list" items="${list}">
@@ -68,14 +67,12 @@
         </td>
     </tr>
     <tr>
-        <td>内容：</td>
+        <td>内容</td>
         <td> <script id="article" type="text/plain"></script> </td>
     </tr>
     <tr>
-        <td><input type="submit" value="发表">
+        <td><input type="submit" value="发表"/>
     </tr>
-
-    </td>
     </form>
 </table>
 

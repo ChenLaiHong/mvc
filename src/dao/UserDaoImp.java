@@ -128,7 +128,6 @@ public class UserDaoImp implements UserDao {
                 user.setUname(rs.getString("uname"));
                 user.setSex(rs.getString("sex"));
                 user.setPassword(rs.getString("password"));
-                user.setPassword2(rs.getString("password2"));
                 return user;
             }
 
@@ -155,9 +154,8 @@ public class UserDaoImp implements UserDao {
             pre.setString(3,user.getPreferences());
             pre.setString(4,user.getOthers());
             pre.setString(5,user.getPassword());
-            pre.setString(6,user.getPassword2());
-            pre.setString(7,user.getUname());
-            pre.setInt(8,user.getUid());
+            pre.setString(6,user.getUname());
+            pre.setInt(7,user.getUid());
             pre.executeUpdate();
 
         } catch (Exception e) {

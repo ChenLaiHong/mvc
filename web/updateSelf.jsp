@@ -83,7 +83,7 @@
 
             <td align="right"> 专业：</td>
             <td>
-                <select name="major" id="major" size="1" readonly="readonly">
+                <select name="major" id="major" size="1" disabled="disabled">
                 <c:forEach var="major" items="${major}">
                     <option value="${major}" ${user.major==major?'selected':''}>${major}</option>
                 </c:forEach>

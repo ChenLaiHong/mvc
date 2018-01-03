@@ -20,8 +20,10 @@ import java.util.List;
 @WebServlet(name = "ArticleServlet")
 public class ArticleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String articleName = request.getParameter("articleName");
         String article = request.getParameter("article");
+        System.out.print("文章内容："+article);
         int typeId = Integer.parseInt(request.getParameter("typeId"));
         String author = (String) request.getSession().getAttribute("name");
         System.out.print("作者："+author);
@@ -31,11 +33,11 @@ public class ArticleServlet extends HttpServlet {
             doGet(request,response);
             return;
         }
-        if(article=="" ||article==null){
-            request.setAttribute("mesg","文章内容不能为空");
-           doGet(request,response);
-            return;
-        }
+//        if(article=="" ||article==null){
+//            request.setAttribute("mesg","文章内容不能为空");
+//           doGet(request,response);
+//            return;
+//        }
         Article article1 = new Article();
         article1.setArticleName(articleName);
         article1.setArticle(article);

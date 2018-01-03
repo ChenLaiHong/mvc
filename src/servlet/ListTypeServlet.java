@@ -21,6 +21,7 @@ public class ListTypeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setCharacterEncoding("UTF-8");
         TypeService typeService = new TypeServiceImp();
         List list = typeService.getAll();
         for (int i = 0; i < list.size(); i++) {

@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-      // request.setCharacterEncoding("utf-8");
+//       request.setCharacterEncoding("utf-8");
         System.out.print("进来servlet");
         UserService userServer=new UserServiceImp();
         User user=new User();

@@ -20,6 +20,7 @@ import java.io.IOException;
 public class ListUserServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        req.setCharacterEncoding("UTF-8");
         QueryInfo info = WebUtils.request2Bean(req, QueryInfo.class);
         System.out.print("当前页"+info.getCurrentpage()+"页数"+info.getPagesize());
         UserService userService = new UserServiceImp();

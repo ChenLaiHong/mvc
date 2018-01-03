@@ -22,7 +22,7 @@ public class EcondFilter implements Filter {
     HttpServletResponse response = (HttpServletResponse)resp;
      req.setCharacterEncoding("UTF-8");
      resp.setCharacterEncoding("UTF-8");
-       System.out.print("ddddddd");
+      // System.out.print("ddddddd");
         chain.doFilter(request, response);
 
 

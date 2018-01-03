@@ -21,6 +21,7 @@ public class UpdateSelfServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setCharacterEncoding("UTF-8");
         try {
             System.out.print("密码是："+request.getParameter("uid"));
             System.out.print("user.getEmail()："+request.getParameter("email"));
@@ -38,6 +39,7 @@ public class UpdateSelfServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        request.setCharacterEncoding("UTF-8");
         int uid =Integer.parseInt(request.getParameter("uid"));
         UserService userService = new UserServiceImp();
         User user = userService.findUser(uid);

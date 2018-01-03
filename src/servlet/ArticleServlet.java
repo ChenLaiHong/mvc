@@ -20,7 +20,7 @@ import java.util.List;
 @WebServlet(name = "ArticleServlet")
 public class ArticleServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
+//        request.setCharacterEncoding("UTF-8");
         String articleName = request.getParameter("articleName");
         String article = request.getParameter("article");
         System.out.print("文章内容："+article);

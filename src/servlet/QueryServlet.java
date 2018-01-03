@@ -21,7 +21,7 @@ public class QueryServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("utf-8");
+//        request.setCharacterEncoding("utf-8");
          String query = request.getParameter("query");
       request.setAttribute("query",query);
         System.out.print("输入的内容：-----"+query);

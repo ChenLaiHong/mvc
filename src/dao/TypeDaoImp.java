@@ -126,4 +126,47 @@ public class TypeDaoImp implements TypeDao {
         }
     }
 
+    @Override
+    public void addCount(int typeId,int articleCount) {
+        Connection conn=null;
+        PreparedStatement pre=null;
+        ResultSet rs=null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql="update type set articleCount=? where typeId=?";
+            pre=conn.prepareStatement(sql);
+            pre.setInt(1,articleCount+1);
+            pre.setInt(2,typeId);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException();
+        }finally {
+            JdbcUtils.release(conn,pre,rs);
+        }
+    }
+
+    @Override
+    public int find(int typeId) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql = "select * from type where typeId=?";
+            st = conn.prepareStatement(sql);
+            st.setInt(1,typeId);
+            rs= st.executeQuery();
+            if(rs.next()){
+                int articleCount = (rs.getInt("articleCount"));
+                return articleCount;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JdbcUtils.release(conn, st, rs);
+        }
+        return -1;
+    }
+
 }

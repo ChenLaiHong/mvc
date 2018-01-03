@@ -39,4 +39,14 @@ public class TypeServiceImp implements TypeService {
     public void deleteType(int typeId) {
         typeDao.deleteType(typeId);
     }
+
+    @Override
+    public void addCount(int typeId,int articleCount) {
+        typeDao.addCount(typeId,articleCount);
+    }
+
+    @Override
+    public int find(int typeId) {
+        return typeDao.find(typeId);
+    }
 }

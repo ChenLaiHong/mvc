@@ -21,4 +21,6 @@ public interface UserService {
 
 
     User updateSelf(int id);
+
+    void register(User user);
 }

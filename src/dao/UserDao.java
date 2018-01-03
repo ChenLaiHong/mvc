@@ -19,4 +19,6 @@ public interface UserDao {
     QueryResult pageQueryLike(int startindex, int pagesize, String query);
 
     User updateSelf(int id);
+
+    void register(User user);
 }

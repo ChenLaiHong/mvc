@@ -59,5 +59,10 @@ public class UserServiceImp implements UserService {
         return userDao.updateSelf(id);
     }
 
+    @Override
+    public void register(User user) {
+        userDao.register(user);
+    }
+
 
 }

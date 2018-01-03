@@ -17,4 +17,8 @@ public interface TypeDao {
     void updateType(int typeId,String typeName);
 
     void deleteType(int typeId);
+
+    void addCount(int typeId,int articleCount);
+
+    int find(int typeId);
 }

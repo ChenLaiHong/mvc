@@ -6,6 +6,7 @@ import utils.JdbcUtils;
 import javax.servlet.http.HttpSession;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,24 +22,25 @@ public class ArticleDaoImp implements ArticleDao {
     @Override
     public void addArticle(Article article1) {
         Connection conn = null;
-        PreparedStatement pre = null;
+        PreparedStatement pre1 = null;
         try {
             conn = JdbcUtils.getConnection();
             String sql = "insert into article (articleName,article,articleDate,author,typeId,commentCount,readCount) values(?,?,?,?,?,?,?)";
-            pre = conn.prepareStatement(sql);
-            pre.setString(1, article1.getArticleName());
-            pre.setString(2, article1.getArticle());
-            pre.setString(3,today);
-            pre.setString(4,article1.getAuthor());
-            pre.setInt(5,article1.getTypeId());
-            pre.setInt(6,0);
-            pre.setInt(7,0);
-            pre.executeUpdate();
+            pre1 = conn.prepareStatement(sql);
+            pre1.setString(1, article1.getArticleName());
+            pre1.setString(2, article1.getArticle());
+            pre1.setString(3,today);
+            pre1.setString(4,article1.getAuthor());
+            pre1.setInt(5,article1.getTypeId());
+            pre1.setInt(6,0);
+            pre1.setInt(7,0);
+            pre1.executeUpdate();
+
             System.out.print("进来了。。。。。");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            JdbcUtils.release(conn, pre);
+            JdbcUtils.release(conn,pre1);
         }
     }
 }

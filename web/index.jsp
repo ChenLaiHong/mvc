@@ -12,6 +12,7 @@
 <html>
   <head>
     <title>学生首页</title>
+      <script src="static/js.js"></script>
   </head>
   <body>
   <h1>登录表单</h1>
@@ -42,25 +43,24 @@
       </div><div class="copyrights">Collect from <a href="http://www.cssmoban.com/" >企业网站模板</a></div>
       <div class="register w3layouts agileits">
           <h2>注 册</h2>
-          <form action="#" method="post">
-              <input type="text" Name="uname" placeholder="用户名" autocomplete="off">
-              <input type="text" Name="email" placeholder="邮箱" autocomplete="off">
-              <input type="password" Name="password" placeholder="密码" autocomplete="off">
-              <input type="text" Name="password2" placeholder="确认密码" autocomplete="off">
-          </form>
+          <h5  style="text-align: center;color: red">${requestScope.masg}</h5>
+          <form action="RegisterServlet" method="post">
+
+              <input type="text" id="uname" name="uname" placeholder="用户名" autocomplete="off">
+              <input type="text" id="email" name="email" placeholder="邮箱" autocomplete="off">
+              <input type="password" id="password" name="password" placeholder="密码" autocomplete="off">
+              <input type="password" id="password2" name="password2" placeholder="确认密码" autocomplete="off">
+
           <div class="send-button w3layouts agileits">
-              <form>
                   <input type="submit" value="免费注册">
-              </form>
           </div>
+          </form>
           <div class="clear"></div>
+
       </div>
-
       <div class="clear"></div>
-
   </div>
-
-
-
+  </div>
   </body>
+
 </html>

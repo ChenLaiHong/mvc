@@ -21,7 +21,7 @@
 
       <div class="login w3layouts agileits">
           <h2>登 录</h2>
-          <h5  style="text-align: center;color: red">${requestScope.msg}</h5>
+          <h5  style="text-align: center;color: red">${requestScope.message}</h5>
           <form action="LoginServlet" method="post">
               <input type="text" name="username" placeholder="用户名" autocomplete="off">
               <input type="password" name="password" placeholder="密码" autocomplete="off">

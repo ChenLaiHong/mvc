@@ -62,7 +62,14 @@
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>servlet.RegisterServlet</servlet-class>
 </servlet>
-
+<servlet>
+    <servlet-name>AdminLoginServlet</servlet-name>
+    <servlet-class>servlet.AdminLoginServlet</servlet-class>
+</servlet>
+    <servlet>
+        <servlet-name>ListLifeServlet</servlet-name>
+        <servlet-class>servlet.ListLifeServlet</servlet-class>
+    </servlet>
 
 
     <servlet-mapping>
@@ -108,5 +115,13 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminLoginServlet</servlet-name>
+        <url-pattern>/AdminLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListLifeServlet</servlet-name>
+        <url-pattern>/ListLifeServlet</url-pattern>
     </servlet-mapping>
 </web-app>

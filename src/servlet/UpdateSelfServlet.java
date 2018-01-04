@@ -32,7 +32,7 @@ public class UpdateSelfServlet extends HttpServlet {
             UserService userService = new UserServiceImp();
 
             userService.updateUser(user);
-            request.getRequestDispatcher("/login.jsp").forward(request,response);
+            request.getRequestDispatcher("/AdminLogin.jsp").forward(request,response);
         }catch (Exception e){
             e.printStackTrace();
         }

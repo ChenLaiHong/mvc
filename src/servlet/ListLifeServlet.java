@@ -1,7 +1,7 @@
 package servlet;
 
-import service.TypeService;
-import service.TypeServiceImp;
+import service.LifeService;
+import service.LifeServiceImp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,19 +12,18 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by 赖红 on 2017/12/29.
+ * Created by 赖红 on 2018/1/4.
  */
-@WebServlet(name = "ListTypeServlet")
-public class ListTypeServlet extends HttpServlet {
+@WebServlet(name = "ListLifeServlet")
+public class ListLifeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+         doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
-        TypeService typeService = new TypeServiceImp();
-        List list = typeService.getAll();
+        LifeService lifeService = new LifeServiceImp();
+        List list = lifeService.getAll();
         request.setAttribute("list", list);
-        request.getRequestDispatcher("/articleType.jsp").forward(request, response);
+        request.getRequestDispatcher("/life.jsp").forward(request, response);
     }
 }

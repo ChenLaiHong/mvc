@@ -20,13 +20,10 @@ import java.io.IOException;
 public class ListUserServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        req.setCharacterEncoding("UTF-8");
+
         QueryInfo info = WebUtils.request2Bean(req, QueryInfo.class);
-        System.out.print("当前页"+info.getCurrentpage()+"页数"+info.getPagesize());
         UserService userService = new UserServiceImp();
-      //  UserService userService = new UserServiceImp();
         PageBean pageBean = userService.pageQuery(info);
-        System.out.print("总页数："+pageBean.getTotalpage());
         req.setAttribute("pagebean",pageBean);
         req.getRequestDispatcher("/loginSuc.jsp").forward(req, resp);
     }

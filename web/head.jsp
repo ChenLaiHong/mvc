@@ -14,7 +14,8 @@
 <h5 style="text-align: center">在线人数<%=session.getAttribute("userNum")%></h5>
 <a href="/ArticleServlet" target="right">发表</a>
 <a href="read.jsp" target="right">查看文章</a>
+<a href="/ListUserServlet" target="right">用户管理</a>
 <a href="/ListTypeServlet" target="right">查看文章类型</a>
-<a href="login.jsp" target="right">登录</a>
+<a href="/ListLifeServlet" target="right">生活管理</a>
 </body>
 </html>

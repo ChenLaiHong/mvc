@@ -38,10 +38,10 @@
 
 <table align="center" border="1" cellpadding="8" bgcolor="#F5CBFF" style="width:500px;height:35px">
     <tr>
-        <p align="center" class="STYLE1">学生登录窗口</p>
+        <p align="center" class="STYLE1">管理员登录窗口</p>
     </tr>
     <h5  style="text-align: center;color: red">${requestScope.msg}</h5>
-    <form action="LoginServlet" method="post" onsubmit="return checkAll()">
+    <form action="AdminLoginServlet" method="post" onsubmit="return checkAll()">
 
         <tr>
             <td>*用户名：</td>
@@ -56,7 +56,7 @@
         <tr>
             <td><input type="submit" value="登录">
             <td>
-                <h6>还没有账号？去<a href="register.jsp">注册！</a><div id="errorA" style="display:inline;color:red;"></div></h6>
+                <h6><div id="errorA" style="display:inline;color:red;"></div></h6>
             </td>
         </tr>
 

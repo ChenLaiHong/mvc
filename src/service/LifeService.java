@@ -1,5 +1,7 @@
 package service;
 
+import bean.Life;
+
 import java.util.List;
 
 /**
@@ -7,4 +9,12 @@ import java.util.List;
  */
 public interface LifeService {
     List getAll();
+
+    void add(Life life);
+
+    Life findLife(int lifeId);
+
+    void updateLife(Life life);
+
+    void deleteLife(int lifeId);
 }

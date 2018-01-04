@@ -23,9 +23,10 @@ public class AdminLoginServlet extends HttpServlet {
             request.setAttribute("msg","密码不能为空");
             request.getRequestDispatcher("/AdminLogin.jsp").forward(request,response);
             return;
-        }if(name!="admin" || pass !="admin"){
+        }if(!name.equals("admin") || !pass.equals("admin")){
             request.setAttribute("msg","没有此账号");
             request.getRequestDispatcher("/AdminLogin.jsp").forward(request,response);
+            return;
         }else {
             request.getSession().setAttribute("admin",name);
             request.getRequestDispatcher("/adminIndex.jsp").forward(request,response);

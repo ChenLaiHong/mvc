@@ -1,5 +1,6 @@
 package service;
 
+import bean.Life;
 import dao.LifeDao;
 import dao.LifeDaoImp;
 
@@ -13,5 +14,25 @@ public class LifeServiceImp implements LifeService {
     @Override
     public List getAll() {
         return lifeDao.getAll();
+    }
+
+    @Override
+    public void add(Life life) {
+        lifeDao.add(life);
+    }
+
+    @Override
+    public Life findLife(int lifeId) {
+        return lifeDao.findLife(lifeId);
+    }
+
+    @Override
+    public void updateLife(Life life) {
+        lifeDao.updateLife(life);
+    }
+
+    @Override
+    public void deleteLife(int lifeId) {
+        lifeDao.deleteLife(lifeId);
     }
 }

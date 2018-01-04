@@ -24,10 +24,8 @@ import java.util.List;
 public class ArticleTypeServlet extends HttpServlet {
     //新增和更新使用
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
         String typeName=request.getParameter("typeName");
         int typeId= Integer.parseInt(request.getParameter("typeId"));
-        System.out.print("输出："+typeName);
         Type type = new Type();
         TypeService typeService= new TypeServiceImp() ;
         if(typeId !=0){

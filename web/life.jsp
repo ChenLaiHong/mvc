@@ -14,18 +14,18 @@
 </head>
 <body background="${path}/image/1.jpg">
 <a href="add_life.jsp">添加生活信息</a>
-<table align="center" border="1" cellpadding="7" bgcolor="#F5CBFF" style="width:50%;height:35px">
+<table align="center" border="1" cellpadding="7" bgcolor="#F5CBFF" style="width:70%;height:35px">
     <tr></tr>
 
     <tr><th>名称</th><th>介绍</th><th>阅读量</th><th>发布时间</th><th>操作</th></tr>
     <c:forEach var="c" items="${requestScope.list}">
         <tr>
             <td align="center" width="7%">${c.lifeName}</td>
-            <td align="center" width="7%">${lsl:sub(c.lifeContent)}</td>
+            <td align="center" width="40%">${lsl:sub(c.lifeContent)}</td>
             <td align="center" width="7%">${c.readNum}</td>
-            <td align="center" width="7%">${c.releaseTime}</td>
-            <td align="center" width="7%">
-                <a href="${path}/ArticleTypeServlet?lifeId=${c.lifeId}">编辑</a>
+            <td align="center" width="17%">${c.releaseTime}</td>
+            <td align="center" width="10%">
+                <a href="${path}/LifeServlet?lifeId=${c.lifeId}">编辑</a>
                 <a href="javascript:void(0)" onclick="del('${c.lifeId}')">删除</a>
             </td>
 
@@ -38,7 +38,7 @@
 <script type="text/javascript">
     function del(lifeId) {
         if(window.confirm("你确定删除吗？"))
-            location.href = '${pageContext.request.contextPath}/DeleteTypeServlet?lifeId=' + lifeId;
+            location.href = '${pageContext.request.contextPath}/DeleteLifeServlet?lifeId=' + lifeId;
     }
 
 </script>

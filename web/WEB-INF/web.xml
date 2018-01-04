@@ -66,10 +66,18 @@
     <servlet-name>AdminLoginServlet</servlet-name>
     <servlet-class>servlet.AdminLoginServlet</servlet-class>
 </servlet>
+<servlet>
+     <servlet-name>ListLifeServlet</servlet-name>
+     <servlet-class>servlet.ListLifeServlet</servlet-class>
+</servlet>
     <servlet>
-        <servlet-name>ListLifeServlet</servlet-name>
-        <servlet-class>servlet.ListLifeServlet</servlet-class>
+        <servlet-name>LifeServlet</servlet-name>
+        <servlet-class>servlet.LifeServlet</servlet-class>
     </servlet>
+<servlet>
+    <servlet-name>DeleteLifeServlet</servlet-name>
+    <servlet-class>servlet.DeleteLifeServlet</servlet-class>
+</servlet>
 
 
     <servlet-mapping>
@@ -123,5 +131,13 @@
     <servlet-mapping>
         <servlet-name>ListLifeServlet</servlet-name>
         <url-pattern>/ListLifeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LifeServlet</servlet-name>
+        <url-pattern>/LifeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteLifeServlet</servlet-name>
+        <url-pattern>/DeleteLifeServlet</url-pattern>
     </servlet-mapping>
 </web-app>

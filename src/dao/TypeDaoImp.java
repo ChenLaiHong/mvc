@@ -28,7 +28,6 @@ public class TypeDaoImp implements TypeDao {
             pre.setString(1, type.getTypeName());
             pre.setInt(2, type.getArticleCount());
             pre.executeUpdate();
-            System.out.print("进来了。。。。。");
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

@@ -62,7 +62,7 @@
                     <c:forEach var="c" items="${requestScope.articles.list}">
                         <li style="margin-bottom: 30px">
                             <span class="date">
-                                <a href="${pageContext.request.contextPath}/ArticleComServlet?articleId=${blog.bid}">${c.articleName}</a>
+                                <a href="${pageContext.request.contextPath}/ArticleComServlet?articleId=${c.articleId}">${c.articleName}</a>
                             </span>
                             <span class="summary">摘要: ${lsl:sub(c.article)}</span>
                             <span class="info">发表于 ${c.articleDate } 阅读(${c.readCount})

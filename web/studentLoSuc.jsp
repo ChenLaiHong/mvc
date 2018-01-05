@@ -24,7 +24,7 @@
 <div class="wrapper col2">
     <div id="topnav">
         <ul>
-            <li class="active"><a href="studentLoSuc.jsp">首页</a></li>
+            <li class="active"><a href="">首页</a></li>
             <li><a href="/StuArticleServlet">文章</a></li>
             <li><a href="full-width.html">发表</a> </li>
             <li><a href="#">设置</a></li>

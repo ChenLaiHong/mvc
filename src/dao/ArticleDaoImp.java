@@ -139,6 +139,7 @@ public class ArticleDaoImp implements ArticleDao {
                article.setAuthor(rs.getString("author"));
                article.setCommentCount(rs.getInt("commentCount"));
                article.setReadCount(rs.getInt("readCount"));
+               article.setTypeId(rs.getInt("typeId"));
                 return article;
             }
 
@@ -151,7 +152,7 @@ public class ArticleDaoImp implements ArticleDao {
     }
 
     @Override
-    public void updateReadNum(int articleId) {
+    public void updateReadNum(int readCount,int articleId) {
         Connection conn=null;
         PreparedStatement pre=null;
         ResultSet rs=null;
@@ -159,7 +160,7 @@ public class ArticleDaoImp implements ArticleDao {
             conn = JdbcUtils.getConnection();
             String sql="update article set readCount=? where articleId=?";
             pre=conn.prepareStatement(sql);
-            pre.setInt(1,rs.getInt("readCount"));
+            pre.setInt(1,readCount+1);
             pre.setInt(2,articleId);
             pre.executeUpdate();
         } catch (Exception e) {

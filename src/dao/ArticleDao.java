@@ -17,5 +17,5 @@ public interface ArticleDao {
 
     Article findById(int articleId);
 
-    void updateReadNum(int articleId);
+    void updateReadNum(int readCount,int articleId);
 }

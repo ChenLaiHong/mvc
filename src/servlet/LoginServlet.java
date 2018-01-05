@@ -43,15 +43,17 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             LifeService lifeService = new LifeServiceImp();
             List list = lifeService.getAll();
             request.setAttribute("list", list);
-           request.getSession().setAttribute("name",user.getUname());
-           request.setAttribute("uid",user.getUid());
+           request.getSession().setAttribute("user",user);
             request.getRequestDispatcher("/studentLoSuc.jsp").forward(request,response);
         }
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
 
-       doPost(request, response);
+        LifeService lifeService = new LifeServiceImp();
+        List list = lifeService.getAll();
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("/studentLoSuc.jsp").forward(request,response);
 
 
     }

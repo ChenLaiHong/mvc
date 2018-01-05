@@ -18,5 +18,5 @@ public interface ArticleService {
 
     Article findById(int articleId);
 
-    void updateReadNum(int articleId);
+    void updateReadNum(int readCount,int articleId);
 }

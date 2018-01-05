@@ -112,22 +112,27 @@
     </div>
     </table>
 </div>
-<div style="text-align: center">
-    <h5 style="color: #ce8483">写评论</h5>
-    <div style="text-align: center">
-        <form action="CommentServlet" method="post">
-            <p>
-                <textarea name="content" id="content" cols="60%" rows="10" style="text-align: center"></textarea>
-                <label for="content" style="display:none;"><small>Comment (required)</small></label>
-            </p>
-            <p>
-                <input name="submit" type="submit" id="submit" value="提交" />
-                &nbsp;
-                <input name="reset" type="reset" id="reset" tabindex="5" value="重置" />
-            </p>
-        </form>
+    <div class="data_list">
+        <div class="data_list_title">
+            <img src="${pageContext.request.contextPath}/image/publish_comment_icon.png" /> 发表评论
+        </div>
+        <c:if test="${user.uname ==null}">
+            <a href="${pageContext.request.contextPath}/index.jsp">去登录</a>
+        </c:if>
+        <div class="publish_comment">
+            <form action="CommentServlet">
+                <input type="hidden" name="articleId" value="${article.articleId}">
+            <div>
+			<textarea style="width: 100%" rows="3" id="content" name="content"
+                      placeholder="智慧如你，不想发表一点想法咩~ "></textarea>
+            </div>
+
+            <div class="publishButton">
+                <button class="btn btn-primary" type="button">发表评论</button>
+            </div>
+            </form>
+        </div>
     </div>
-</div>
     <br>
         <jsp:include page="/tail.jsp"/>
 

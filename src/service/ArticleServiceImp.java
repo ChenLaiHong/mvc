@@ -34,4 +34,14 @@ public class ArticleServiceImp implements ArticleService {
         pageBean.setTotalrecord(queryResult.getTotalrecord());
         return pageBean;
     }
+
+    @Override
+    public Article findById(int articleId) {
+        return articleDao.findById(articleId);
+    }
+
+    @Override
+    public void updateReadNum(int articleId) {
+        articleDao.updateReadNum(articleId);
+    }
 }

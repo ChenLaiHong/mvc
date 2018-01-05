@@ -82,7 +82,10 @@
     <servlet-name>StuArticleServlet</servlet-name>
     <servlet-class>servlet.StuArticleServlet</servlet-class>
 </servlet>
-
+<servlet>
+    <servlet-name>ArticleComServlet</servlet-name>
+    <servlet-class>servlet.ArticleComServlet</servlet-class>
+</servlet>
 
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -147,5 +150,9 @@
     <servlet-mapping>
         <servlet-name>StuArticleServlet</servlet-name>
         <url-pattern>/StuArticleServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ArticleComServlet</servlet-name>
+        <url-pattern>/ArticleComServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -118,4 +118,54 @@ public class ArticleDaoImp implements ArticleDao {
             JdbcUtils.release(conn,st,rs);
         }
     }
+
+    @Override
+    public Article findById(int articleId) {
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql = "select * from article where articleId=?";
+            st = conn.prepareStatement(sql);
+            st.setInt(1,articleId);
+            rs= st.executeQuery();
+            if(rs.next()){
+               Article article = new Article();
+               article.setArticleId(rs.getInt("articleId"));
+               article.setArticleName(rs.getString("articleName"));
+               article.setArticle(rs.getString("article"));
+               article.setArticleDate(rs.getDate("articleDate"));
+               article.setAuthor(rs.getString("author"));
+               article.setCommentCount(rs.getInt("commentCount"));
+               article.setReadCount(rs.getInt("readCount"));
+                return article;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            JdbcUtils.release(conn, st, rs);
+        }
+        return null;
+    }
+
+    @Override
+    public void updateReadNum(int articleId) {
+        Connection conn=null;
+        PreparedStatement pre=null;
+        ResultSet rs=null;
+        try{
+            conn = JdbcUtils.getConnection();
+            String sql="update article set readCount=? where articleId=?";
+            pre=conn.prepareStatement(sql);
+            pre.setInt(1,rs.getInt("readCount"));
+            pre.setInt(2,articleId);
+            pre.executeUpdate();
+        } catch (Exception e) {
+            throw new DaoException();
+        }finally {
+            JdbcUtils.release(conn,pre,rs);
+        }
+    }
 }

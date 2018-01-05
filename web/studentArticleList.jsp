@@ -11,6 +11,18 @@
 <html>
 <head>
     <title>文章列表</title>
+
+
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/blog.css">
+    <link href="http://blog.java1234.com/favicon.ico" rel="SHORTCUT ICON">
+    <script
+            src="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/js/jquery-1.11.2.min.js"></script>
+    <script
+            src="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="wrapper col1">
@@ -42,26 +54,27 @@
     </div>
 </div>
 
-<div id="comments" style="text-align: center">
-    <h2>文章</h2>
-<table style="width:80%;height:60px">
-
-<c:forEach var="c" items="${requestScope.articles.list}">
-    <ul class="commentlist">
-        <li class="comment_odd">
-           <span class="name" style="color: #591434" aria-setsize="50"><a href="#">${c.articleName}</a></span>
-            <br><br>
-        <ul>
-        <li>阅读量：${c.readCount} &nbsp;&nbsp;&nbsp;评论量：${c.commentCount}&nbsp;&nbsp;&nbsp;作者：${c.author}</li>
-        </ul>
-            <div class="submitdate" style="color: #ffcc66"><a href="#">${c.articleDate }</a></div>
-            <p>${lsl:sub(c.article)}</p>
-        </li>
-    </ul>
-</c:forEach>
-</table>
-
-
+<div id="comments">
+    <div class="col-md-12">
+        <div class="data_list">
+            <div class="datas">
+                <ul>
+                    <c:forEach var="c" items="${requestScope.articles.list}">
+                        <li style="margin-bottom: 30px">
+                            <span class="date">
+                                <a href="${pageContext.request.contextPath}/ArticleComServlet?articleId=${blog.bid}">${c.articleName}</a>
+                            </span>
+                            <span class="summary">摘要: ${lsl:sub(c.article)}</span>
+                            <span class="info">发表于 ${c.articleDate } 阅读(${c.readCount})
+										评论(${c.commentCount}) 作者(${c.author})
+                            </span>
+                        </li>
+                        <hr style="height:5px;border:none;border-top:1px dashed gray;padding-bottom:  10px;" />
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+        <div>
 
     <br>
     共[${articles.totalrecord}]条记录 ,

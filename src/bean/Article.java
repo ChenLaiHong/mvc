@@ -1,6 +1,8 @@
 package bean;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by 赖红 on 2017/12/26.
@@ -14,6 +16,11 @@ public class Article {
     private int typeId;
     private int commentCount;
     private int readCount;
+    private List<String> imagesList = new LinkedList<String>();
+
+    public void setImagesList(List<String> imagesList) {
+        this.imagesList = imagesList;
+    }
 
     public void setCommentCount(int commentCount) {
         this.commentCount = commentCount;
@@ -77,5 +84,9 @@ public class Article {
 
     public int getReadCount() {
         return readCount;
+    }
+
+    public List<String> getImagesList() {
+        return imagesList;
     }
 }

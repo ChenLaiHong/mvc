@@ -15,4 +15,8 @@ public interface ArticleService {
     List getAll();
 
     PageBean pageQuery(QueryInfo info);
+
+    Article findById(int articleId);
+
+    void updateReadNum(int articleId);
 }

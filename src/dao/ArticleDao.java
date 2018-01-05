@@ -14,4 +14,8 @@ public interface ArticleDao {
     List getAll();
 
     QueryResult pageQuery(int startindex, int pagesize);
+
+    Article findById(int articleId);
+
+    void updateReadNum(int articleId);
 }

@@ -12,4 +12,12 @@ public class MyEL {
         //如果字符数小于15则一一列出来
         return str;
     }
+    public static String sub1(String str){
+        //当信息字符数大于15时就只显示1到10的其他用省略号标示
+        if(str.length()>60){
+            return str.substring(0, 60) + "......";
+        }
+        //如果字符数小于15则一一列出来
+        return str;
+    }
 }

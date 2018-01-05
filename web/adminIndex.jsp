@@ -11,7 +11,7 @@
     <title>管理员首页</title>
 </head>
 <body>
-<iframe src="head.jsp" name="left" width="100%" height="15%"></iframe>
+<iframe src="adminHead.jsp" name="left" width="100%" height="15%"></iframe>
 <iframe src="message.jsp" name="right" width="100%" height="100%"></iframe>
 
 </body>

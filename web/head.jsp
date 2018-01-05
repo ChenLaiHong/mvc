@@ -1,21 +1,33 @@
 <%--
   Created by IntelliJ IDEA.
   User: 赖红
-  Date: 2018/1/3
-  Time: 15:29
+  Date: 2018/1/5
+  Time: 9:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" href="css/layout.css" type="text/css" />
 <html>
 <head>
-    <title>导航栏</title>
+    <title>前台首部</title>
 </head>
 <body>
-<h5 style="text-align: center">在线人数<%=session.getAttribute("userNum")%></h5>
-<a href="/ArticleServlet" target="right">发表</a>
-<a href="read.jsp" target="right">查看文章</a>
-<a href="/ListUserServlet" target="right">用户管理</a>
-<a href="/ListTypeServlet" target="right">查看文章类型</a>
-<a href="/ListLifeServlet" target="right">生活管理</a>
+<div class="wrapper col1">
+    <div id="header">
+        <div id="logo">
+            <h1>东软</h1>
+            <p>我向你一步步走近</p>
+        </div>
+        <div class="fl_right">
+            <ul>
+                <li class="last"><a href="#">设置首页</a></li>
+                <li><a href="#">添加收藏</a></li>
+                <li><a href="#">手机版</a></li>
+            </ul>
+            <p>通讯地址：广东省佛山市南海软件科技园 邮编:528225</p>
+        </div>
+        <br class="clear" />
+    </div>
+</div>
 </body>
 </html>

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="lsl" uri="/lsl" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <meta http-equiv="imagetoolbar" content="no" />
 <link rel="stylesheet" href="css/layout.css" type="text/css" />
 <script type="text/javascript" src="static/scripts/jquery-1.4.1.min.js"></script>
@@ -17,51 +19,15 @@
     <title>学生登录成功后的首页</title>
 </head>
 <body>
-<div class="wrapper col1">
-    <div id="header">
-        <div id="logo">
-            <h1>东软</h1>
-            <p>我向你一步步走近</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-                <li class="last"><a href="#">设置首页</a></li>
-                <li><a href="#">添加收藏</a></li>
-                <li><a href="#">手机版</a></li>
-            </ul>
-            <p>通讯地址：广东省佛山市南海软件科技园 邮编:528225</p>
-        </div>
-        <br class="clear" />
-    </div>
-</div>
+<jsp:include page="/head.jsp"/>
 <!-- ####################################################################################################### -->
 <div class="wrapper col2">
     <div id="topnav">
         <ul>
-            <li class="active"><a href="index.html">Home</a>
-                <ul>
-                    <li><a href="#">Libero</a></li>
-                    <li><a href="#">Maecenas</a></li>
-                    <li><a href="#">Mauris</a></li>
-                    <li class="last"><a href="#">Suspendisse</a></li>
-                </ul>
-            </li>
-            <li><a href="style-demo.html">Style Demo</a>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolor</a></li>
-                    <li><a href="#">Suspendisse in neque</a></li>
-                    <li class="last"><a href="#">Praesent et eros</a></li>
-                </ul>
-            </li>
-            <li><a href="full-width.html">Full Width</a>
-                <ul>
-                    <li><a href="#">Lorem ipsum dolor</a></li>
-                    <li><a href="#">Suspendisse in neque</a></li>
-                    <li class="last"><a href="#">Praesent et eros</a></li>
-                </ul>
-            </li>
-            <li><a href="#">Our Services</a></li>
-            <li class="last"><a href="#">Long Link Text</a></li>
+            <li class="active"><a href="studentLoSuc.jsp">首页</a></li>
+            <li><a href="/StuArticleServlet">文章</a></li>
+            <li><a href="full-width.html">发表</a> </li>
+            <li><a href="#">设置</a></li>
         </ul>
     </div>
 </div>
@@ -93,47 +59,27 @@
     </div>
 </div>
 <!-- ####################################################################################################### -->
+
 <div class="wrapper col4">
     <div id="container">
         <div id="hpage">
             <ul>
-                <li>
-                    <h2>Indonectetus facilis leo</h2>
-                    <div class="imgholder"><a href="#"><img src="image/5.jpg" alt="" /></a></div>
-                    <p>This is a W3C standards compliant free website template from <a href="http://www.cssmoban.com/">模板之家</a>. For more CSS templates visit <a href="#">Free Website Templates</a>. Etmetus conse cte tuer leo nisl justo sed vest vitae nunc massa scelerit</p>
+                <c:forEach var="c" items="${requestScope.list}">
+                <li class=${c.lifeId==4 ? "last":"" }>
+                    <h2>${c.lifeName}</h2>
+                    <div class="imgholder"><a href="#"><img src="image/${c.lifeId+4}.jpg" alt="" /></a></div>
+                    <p>${lsl:sub1(c.lifeContent)}</p>
                     <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
                 </li>
-                <li>
-                    <h2>Indonectetus facilis leo</h2>
-                    <div class="imgholder"><a href="#"><img src="image/6.jpg" alt="" /></a></div>
-                    <p>This template is distributed using a <a href="#">Website Template Licence</a>, which allows you to use and modify the template for both personal and commercial use when you keep the provided credit links in the footer.</p>
-                    <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-                </li>
-                <li>
-                    <h2>Indonectetus facilis leo</h2>
-                    <div class="imgholder"><a href="#"><img src="image/7.jpg" alt="" /></a></div>
-                    <p>Seddui vestibulum vest mi liberos estibulum urna at eget amet sed. Etmetus consectetuer leo nisl justo sed vest vitae nunc massa scelerit. Namaucibulum lor ligula nullam risque et ristie sollis sapien nulla neque.</p>
-                    <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-                </li>
-                <li class="last">
-                    <h2>Indonectetus facilis leo</h2>
-                    <div class="imgholder"><a href="#"><img src="image/8.jpg" alt="" /></a></div>
-                    <p>Nullamlacus dui ipsum conseque loborttis non euisque morbi pen as dapibulum orna. Urna ultrices quis curabitur phasellentesque congue magnis vestibulum. Orcieleifendimentum risuspenatoque massa nunc.</p>
-                    <p class="readmore"><a href="#">Continue Reading &raquo;</a></p>
-                </li>
+                </c:forEach>
             </ul>
             <br class="clear" />
         </div>
     </div>
 </div>
+
 <!-- ####################################################################################################### -->
 
-<div class="wrapper col6">
-    <div id="copyright">
-        <p class="fl_left">CopyRight @ 2002-2016 www.nuit.edu.cn All Rights Reserved 备案号：粤ICP备10021193号</p>
-        <p class="fl_right">传真：0757—86684612 电子信箱：lihuixuan@nuit.edu.cn</p>
-        <br class="clear" />
-    </div>
-</div>
+<jsp:include page="/tail.jsp"/>
 </body>
 </html>

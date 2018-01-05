@@ -2,11 +2,14 @@ package servlet;
 
 
 import bean.User;
+import service.LifeService;
+import service.LifeServiceImp;
 import service.UserService;
 import service.UserServiceImp;
 
 import javax.servlet.annotation.WebServlet;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by 赖红 on 2017/12/2.
@@ -37,12 +40,12 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
             return;
         }else {
 
-            System.out.print("用户名："+user.getUname());
-
+            LifeService lifeService = new LifeServiceImp();
+            List list = lifeService.getAll();
+            request.setAttribute("list", list);
            request.getSession().setAttribute("name",user.getUname());
            request.setAttribute("uid",user.getUid());
             request.getRequestDispatcher("/studentLoSuc.jsp").forward(request,response);
-       //     response.sendRedirect("ListUserServlet");
         }
     }
 

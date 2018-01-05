@@ -17,4 +17,10 @@
         <function-signature>java.lang.String sub(java.lang.String)</function-signature>
     </function>
 
+    <function>
+        <name>sub1</name>
+        <function-class>utils.MyEL</function-class>
+        <function-signature>java.lang.String sub1(java.lang.String)</function-signature>
+    </function>
+
 </taglib>

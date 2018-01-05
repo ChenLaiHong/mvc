@@ -60,7 +60,7 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 .col0{color:#313131; background-color:#F8F7DF; border-top:5px solid #313131;}
 .col1, .col1 a{color:#8B785F; background-color:#F8F7DF;}
-.col2{color:#333333; background:url("../images/topnav_bg.gif") bottom left repeat-x #E5E2C9;}
+.col2{color:#333333; background:url("../image/topnav_bg.gif") bottom left repeat-x #E5E2C9;}
 .col3{color:#313131; background-color:#F8F7DF;}
 .col4{color:#666666; background-color:#F8F7DF;}
 .col4 a{color:#746550; background-color:#F8F7DF;}
@@ -224,13 +224,18 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 /* ------Comments-----*/
 
-#comments{margin-bottom:40px;}
+#comments{
+	margin-bottom:10px;
+	font-style: normal;
+	border: 1px solid #E5E5E5;
+	padding: 10px;
+}
 
 #comments .commentlist {margin:0; padding:0;}
 
 #comments .commentlist ul{margin:0; padding:0; list-style:none;}
 
-#comments .commentlist li.comment_odd, #comments .commentlist li.comment_even{margin:0 0 10px 0; padding:15px; list-style:none;}
+#comments .commentlist li.comment_odd, #comments .commentlist li.comment_even{margin:0 0 20px 0; padding:25px; list-style:none;}
 
 #comments .commentlist li.comment_odd{color:#666666; background-color:#FDFFE1;}
 #comments .commentlist li.comment_odd a{color:#746550; background-color:#FDFFE1;}
@@ -238,8 +243,8 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 #comments .commentlist li.comment_even{color:#666666; background-color:#FBFFBF;}
 #comments .commentlist li.comment_even a{color:#746550; background-color:#FBFFBF;}
 
-#comments .commentlist .author .name{font-weight:bold;}
-#comments .commentlist .submitdate{font-size:smaller;}
+#comments .commentlist .author .name{font-weight:900;}
+#comments .commentlist .submitdate{font-size:smaller}
 
 #comments .commentlist p{margin:10px 5px 10px 0; padding:0; font-weight: normal;text-transform: none;}
 

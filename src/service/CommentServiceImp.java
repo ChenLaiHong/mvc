@@ -15,4 +15,9 @@ public class CommentServiceImp implements CommentService {
     public List findAll(int articleId) {
         return commentDao.findAll(articleId);
     }
+
+    @Override
+    public void add(Comment comment) {
+        commentDao.add(comment);
+    }
 }

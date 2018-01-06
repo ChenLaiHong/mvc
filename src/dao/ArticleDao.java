@@ -18,4 +18,6 @@ public interface ArticleDao {
     Article findById(int articleId);
 
     void updateReadNum(int readCount,int articleId);
+
+    void updateCommNum(int articleId, int commentCount);
 }

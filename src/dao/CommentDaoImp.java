@@ -3,6 +3,7 @@ package dao;
 import bean.Article;
 import bean.Comment;
 import utils.JdbcUtils;
+import utils.Time;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,5 +40,25 @@ public class CommentDaoImp implements CommentDao {
             return null;
         }
         return list;
+    }
+
+    @Override
+    public void add(Comment comment) {
+        Connection conn = null;
+        PreparedStatement pre1 = null;
+        try {
+            conn = JdbcUtils.getConnection();
+            String sql = "insert into comment (content,commentDate,author,articleId) values(?,?,?,?)";
+            pre1 = conn.prepareStatement(sql);
+            pre1.setString(1, comment.getContent());
+            pre1.setString(2, Time.getTime());
+            pre1.setString(3, comment.getAuthor());
+            pre1.setInt(4,comment.getArticleId());
+            pre1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            JdbcUtils.release(conn,pre1);
+        }
     }
 }

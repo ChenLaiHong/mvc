@@ -44,4 +44,9 @@ public class ArticleServiceImp implements ArticleService {
     public void updateReadNum(int readCount,int articleId) {
         articleDao.updateReadNum(readCount,articleId);
     }
+
+    @Override
+    public void updateCommNum(int articleId, int commentCount) {
+        articleDao.updateCommNum(articleId,commentCount);
+    }
 }

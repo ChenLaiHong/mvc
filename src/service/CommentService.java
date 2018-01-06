@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface CommentService {
     List findAll(int articleId);
+
+    void add(Comment comment);
 }

@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface CommentDao {
     List findAll(int articleId);
+
+    void add(Comment comment);
 }

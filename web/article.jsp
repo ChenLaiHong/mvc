@@ -26,23 +26,7 @@
             src="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="wrapper col1">
-    <div id="header">
-        <div id="logo">
-            <h1>东软</h1>
-            <p>我向你一步步走近</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-                <li class="last"><a href="#">设置首页</a></li>
-                <li><a href="#">添加收藏</a></li>
-                <li><a href="#">手机版</a></li>
-            </ul>
-            <p>通讯地址：广东省佛山市南海软件科技园 邮编:528225</p>
-        </div>
-        <br class="clear" />
-    </div>
-</div>
+<jsp:include page="/head.jsp"/>
 <!-- ####################################################################################################### -->
 <div class="wrapper col2">
     <div id="topnav">
@@ -119,19 +103,8 @@
         <c:if test="${user.uname ==null}">
             <a href="${pageContext.request.contextPath}/index.jsp">去登录</a>
         </c:if>
-        <div class="publish_comment">
-            <form action="CommentServlet">
-                <input type="hidden" name="articleId" value="${article.articleId}">
-            <div>
-			<textarea style="width: 100%" rows="3" id="content" name="content"
-                      placeholder="智慧如你，不想发表一点想法咩~ "></textarea>
-            </div>
 
-            <div class="publishButton">
-                <button class="btn btn-primary" type="button">发表评论</button>
-            </div>
-            </form>
-        </div>
+        <jsp:include page="/writeCom.jsp"/>
     </div>
     <br>
         <jsp:include page="/tail.jsp"/>

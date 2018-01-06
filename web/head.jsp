@@ -20,9 +20,9 @@
         </div>
         <div class="fl_right">
             <ul>
-                <li class="last"><a href="#">设置首页</a></li>
+                <li class="last">当前用户：<td style="color: #843534">${user.uname}</td></li>
                 <li><a href="#">添加收藏</a></li>
-                <li><a href="#">手机版</a></li>
+                <li><a href="/LoginOutServlet"><td style="color: red">退出登录</td> </a></li>
             </ul>
             <p>通讯地址：广东省佛山市南海软件科技园 邮编:528225</p>
         </div>

@@ -90,7 +90,10 @@
     <servlet-name>CommentServlet</servlet-name>
     <servlet-class>servlet.CommentServlet</servlet-class>
 </servlet>
-    
+<servlet>
+    <servlet-name>LoginOutServlet</servlet-name>
+    <servlet-class>servlet.LoginOutServlet</servlet-class>
+</servlet>
     
     
     <servlet-mapping>
@@ -164,5 +167,9 @@
     <servlet-mapping>
         <servlet-name>CommentServlet</servlet-name>
         <url-pattern>/CommentServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginOutServlet</servlet-name>
+        <url-pattern>/LoginOutServlet</url-pattern>
     </servlet-mapping>
 </web-app>

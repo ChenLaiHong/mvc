@@ -21,29 +21,27 @@ public class UpdateSelfServlet extends HttpServlet {
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
         try {
-            System.out.print("密码是："+request.getParameter("uid"));
-            System.out.print("user.getEmail()："+request.getParameter("email"));
-            System.out.print("user.getSex()："+request.getParameter("sex"));
-
-
             User user= WebUtils.request2Bean(request,User.class);
             UserService userService = new UserServiceImp();
-
             userService.updateUser(user);
-            request.getRequestDispatcher("/AdminLogin.jsp").forward(request,response);
+            int uid =Integer.parseInt(request.getParameter("uid"));
+            User user1 = userService.findUser(uid);
+            request.setAttribute("sex", Choose.sex);
+            request.setAttribute("preferences", Choose.preferences);
+            request.setAttribute("major", Choose.major);
+            request.setAttribute("user", user1);
+            request.getRequestDispatcher("/updateSelf.jsp").forward(request,response);
+
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        request.setCharacterEncoding("UTF-8");
         int uid =Integer.parseInt(request.getParameter("uid"));
         UserService userService = new UserServiceImp();
         User user = userService.findUser(uid);
-        System.out.print("用户对象"+user);
         request.setAttribute("sex", Choose.sex);
         request.setAttribute("preferences", Choose.preferences);
         request.setAttribute("major", Choose.major);

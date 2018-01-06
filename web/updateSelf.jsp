@@ -35,7 +35,19 @@
     </script>
 </head>
 <body>
-<form action="UpdateSelfServlet" method="post" onsubmit="return check();">
+<jsp:include page="/head.jsp"/>
+<!-- ####################################################################################################### -->
+<div class="wrapper col2">
+    <div id="topnav">
+        <ul>
+            <li><a href="studentLoSuc.jsp">首页</a></li>
+            <li><a href="/StuArticleServlet">文章</a></li>
+            <li><a href="/StuAddArticleServlet">发表</a> </li>
+            <li class="active"><a href="UpdateSelfServlet?uid=${user.uid}">修改个人信息</a></li>
+        </ul>
+    </div>
+</div>
+<form id="form" action="UpdateSelfServlet" method="post" onsubmit="return checkAll();">
     <h2 align="center">修改信息</h2>
     <table align="center">
 <input type="hidden" name = "uid" value="${user.uid}">
@@ -48,12 +60,12 @@
         </tr>
         <tr>
             <td align="right">密码：</td>
-            <td><input type="text" size="20" name="password" id="pwd" placeholder="请输入密码" value="${user.password}" onblur="checkPwd()"/>
+            <td><input type="password" size="20" name="password" id="pwd" placeholder="请输入密码" value="${user.password}" onblur="checkPwd()"/>
                 <font size="2"><span id="pwdwarn" style="color: #d6090e;"></span></font></td>
         </tr>
         <tr>
             <td align="right">确认密码：</td>
-            <td><input type="text" size="20" name="password2" id="repwd" placeholder="请再次输入名称" value="${user.password2}" onblur="checkrePwd()"/>
+            <td><input type="password" size="20" name="password2" id="repwd" placeholder="请再次输入密码" value="${user.password}" onblur="checkrePwd()"/>
                 <font size="2"> <span id="repwdwarn" style="color: #d6090e;"></span></font></td>
         </tr>
 
@@ -74,7 +86,7 @@
         <tr>
             <td align="right"> 爱好：</td>
             <td><c:forEach var="p" items="${preferences}">
-                <input type="checkbox" name="preferences" value="${p}" ${fn:contains(user.preferences,p)?'checked':''}>${p}
+                <input type="checkbox" name="pre" value="${p}" ${fn:contains(user.preferences,p)?'checked':''}>${p}
             </c:forEach>
             </td>
 
@@ -91,7 +103,7 @@
             </td>
         </tr>
         <tr>
-            <td>用户其他信息：</td>
+            <td align="right">其他：</td>
             <td>
                 <textarea id="others" name="others">${user.others}</textarea>
             </td>

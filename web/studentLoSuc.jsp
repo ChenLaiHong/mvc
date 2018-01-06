@@ -26,8 +26,8 @@
         <ul>
             <li class="active"><a href="">首页</a></li>
             <li><a href="/StuArticleServlet">文章</a></li>
-            <li><a href="full-width.html">发表</a> </li>
-            <li><a href="#">设置</a></li>
+            <li><a href="/StuAddArticleServlet">发表</a> </li>
+            <li><a href="UpdateSelfServlet?uid=${user.uid}">修改个人信息</a></li>
         </ul>
     </div>
 </div>

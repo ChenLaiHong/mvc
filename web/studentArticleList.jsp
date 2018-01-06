@@ -25,31 +25,15 @@
             src="${pageContext.request.contextPath}/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div class="wrapper col1">
-    <div id="header">
-        <div id="logo">
-            <h1>东软</h1>
-            <p>我向你一步步走近</p>
-        </div>
-        <div class="fl_right">
-            <ul>
-                <li class="last"><a href="#">设置首页</a></li>
-                <li><a href="#">添加收藏</a></li>
-                <li><a href="#">手机版</a></li>
-            </ul>
-            <p>通讯地址：广东省佛山市南海软件科技园 邮编:528225</p>
-        </div>
-        <br class="clear" />
-    </div>
-</div>
+<jsp:include page="/head.jsp"/>
 <!-- ####################################################################################################### -->
 <div class="wrapper col2">
     <div id="topnav">
         <ul>
             <li><a href="studentLoSuc.jsp">首页</a></li>
             <li class="active"><a href="/StuArticleServlet">文章</a></li>
-            <li><a href="full-width.html">发表</a> </li>
-            <li><a href="#">设置</a></li>
+            <li><a href="/StuAddArticleServlet">发表</a> </li>
+            <li><a href="UpdateSelfServlet?uid=${user.uid}">修改个人信息</a></li>
         </ul>
     </div>
 </div>
